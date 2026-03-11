@@ -9,7 +9,7 @@
     "dev": "nitro dev",
     "prepare": "nitro prepare",
     "preview": "node .output/server/index.mjs",
-    "dokploy:start": "npm install && npm run build && npm run preview"
+    "dokploy:start": "npm run preview"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.57.0",
