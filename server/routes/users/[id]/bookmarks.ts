@@ -1,6 +1,5 @@
 import { useAuth } from '~/utils/auth';
 import { z } from 'zod';
-import { bookmarks } from '@prisma/client';
 
 const bookmarkMetaSchema = z.object({
   title: z.string(),
@@ -34,7 +33,7 @@ export default defineEventHandler(async event => {
       where: { user_id: userId },
     });
 
-    return bookmarks.map((bookmark: bookmarks) => ({
+    return bookmarks.map(bookmark => ({
       tmdbId: bookmark.tmdb_id,
       meta: bookmark.meta,
       group: bookmark.group,
@@ -80,7 +79,7 @@ export default defineEventHandler(async event => {
           favorite_episodes: normalizedFavoriteEpisodes,
           updated_at: now,
         } as any,
-      }) as bookmarks;
+      });
 
       results.push({
         tmdbId: bookmark.tmdb_id,
