@@ -9,13 +9,9 @@ commands = [
 
 [phases.build]
 commands = [
-    "npx prisma generate",
-  "npx prisma migrate deploy",
+  "DATABASE_URL=\"postgresql://postgres:password@localhost:5432/db\" npx prisma generate",
   "npm run build"
 ]
 
-[variables]
-NIXPACKS_NODE_VERSION = "22"
-
 [start]
-cmd = "source .env && node .output/server/index.mjs"
+cmd = "npx prisma migrate deploy && node .output/server/index.mjs"
