@@ -1,8 +1,6 @@
-[variables]
-NIXPACKS_NODE_VERSION = "22"
-
 [phases.setup]
-nixPkgs = ["nodejs-22_x", "python3", "gcc", "gnumake"]
+nixpkgsArchive = "51ad838b03a05b1de6f9f2a0fffecee64a9788ee"
+nixPkgs = ["nodejs_22", "python3", "gcc", "gnumake"]
 
 [phases.install]
 commands = [
@@ -15,6 +13,9 @@ commands = [
   "npx prisma migrate deploy",
   "npm run build"
 ]
+
+[variables]
+NIXPACKS_NODE_VERSION = "22"
 
 [start]
 cmd = "source .env && node .output/server/index.mjs"
